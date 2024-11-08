@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>ASME_DTOG Course Lecture_Statistics</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>ASME_DTOG Course Lecture_Full Factorial</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7496,33 +7496,25 @@ a.anchor-link {
 <p><strong>Table of contents</strong><a id="toc0_"></a></p>
 <ul>
 <li><a href="#toc1_">Introduction</a></li>
-<li><a href="#toc2_">Design of Experiments</a></li>
-<li><a href="#toc3_">Simple Comparative Experiments</a><ul>
-<li><a href="#toc3_1_1_">Statistical Concepts</a></li>
-<li><a href="#toc3_1_2_">Example Problem - Illustrates the Statistical Concepts</a><ul>
-<li><a href="#toc3_1_2_1_1_">Graphical Description of Variability</a></li>
-<li><a href="#toc3_1_2_1_2_">histogram</a></li>
-<li><a href="#toc3_1_2_1_3_"> boxplot</a></li>
-<li><a href="#toc3_1_2_2_">General Observations</a></li>
-<li><a href="#toc3_1_2_3_">Probability Distributions</a><ul>
-<li><a href="#toc3_1_2_3_1_">Probability (continuous)</a></li>
-<li><a href="#toc3_1_2_3_2_">Probability (discrete)</a></li>
-<li><a href="#toc3_1_2_3_3_">Degrees of Freedom</a></li>
-<li><a href="#toc3_1_2_3_4_">Normal Distributions</a></li>
-<li><a href="#toc3_1_2_3_5_">Central Limit Theorem (CLT)</a></li>
-<li><a href="#toc3_1_2_3_6_">Intuitive Understanding</a></li>
-<li><a href="#toc3_1_2_3_7_">Example Summary</a></li>
-<li><a href="#toc3_1_2_3_8_">Sampling Distributions</a></li>
-<li><a href="#toc3_1_2_3_9_">The sampling situation for the two-sample t-test</a></li>
+<li><a href="#toc2_">Design of Experiments</a><br/>
+    - <a href="#toc2_1_1_1_">Definition</a></li>
+<li><a href="#toc3_">Full Factorial Design</a><ul>
+<li><a href="#toc3_1_1_">Design of Experiments (DoE)</a></li>
+<li><a href="#toc3_1_2_">Example of a Full Factorial Design with ML Integration – Python Code </a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#toc3_1_3_">Simple Comparative Experiments: Concepts &amp; Ideas</a><ul>
-<li><a href="#toc3_1_3_1_">The Two-Sample t-Test</a></li>
-<li><a href="#toc3_1_3_2_">Recap:</a></li>
-</ul>
-</li>
+<li><a href="#toc4_">Factorial Experiments: Two Factors</a><br/>
+      - <a href="#toc4_1_1_1_1_">Suppose we have two factors/parameters which are  being varied in the experiment</a><br/>
+    - <a href="#toc4_1_1_2_">Alternative Arrangement: Factorial</a><ul>
+<li><a href="#toc4_1_2_">DOE Advantages</a></li>
+<li><a href="#toc4_1_3_">Interactions between Factors</a></li>
+<li><a href="#toc4_1_4_">2k Factorial Experiments</a></li>
+<li><a href="#toc4_1_5_">Factorial – 2k </a></li>
+<li><a href="#toc4_1_6_">Example</a></li>
+<li><a href="#toc4_1_7_">Main and Interactive Effects</a></li>
+<li><a href="#toc4_1_8_">Yates Order</a></li>
+<li><a href="#toc4_1_9_">Matrix Rules</a></li>
+<li><a href="#toc4_1_10_">Example Factorial Experiments</a></li>
 </ul>
 </li>
 </ul>
@@ -7555,18 +7547,14 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<img alt="No description has been provided for this image" height="555" src="images/Data Driven Illustration.jpg" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="540"/>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<img alt="No description has been provided for this image" height="555" src="images/DOE with ML.jpg" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="540"/>
+<p><strong>Design of Experiments</strong></p>
+<p>The goal of DOE simulations is to make predictions concerning the response of physical systems to various kinds of excitation, and based on those predictions, make informed decisions.</p>
+<p>Mathematical models are an idealization of reality and should never be confused with the physical reality that they are supposed to represent.</p>
+<p>The choice of a mathematical model depends on its intended use:
+    What aspects of the physical reality are of interest?
+    What data must be predicted?
+    What accuracy is required?</p>
+<p>What is very important: there exist errors associated with the mathematical model and some errors are associated with its data driven solutions. These are errors of “Level of Confidence (e.g., 95%) &amp; # Experiments Runs”(DOE) and errors (MAE, RMSE) of “training” set for ML/AI.</p>
 </div>
 </div>
 </div>
@@ -7578,6 +7566,8 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id="Design-of-Experiments"><a id="toc2_"></a><a href="#toc0_">Design of Experiments</a><a class="anchor-link" href="#Design-of-Experiments">¶</a></h1><p><span style="color:red"><b><em>The Design of Experiments, also known as experiment design or experimental design, is the design of any task that aims to describe and explain the variation of information under conditions that are hypothesized to reflect the variation.</em></b></span></p>
+<h4 id="Definition"><a id="toc2_1_1_1_"></a><a href="#toc0_">Definition</a><a class="anchor-link" href="#Definition">¶</a></h4><p><strong>Design of Experiments (DoE)</strong></p>
+<p>Design of Experiments is a systematic method to determine the relationship between factors affecting a process and the output of that process. In a full factorial design, experiments are conducted at all possible combinations of factor levels. This approach allows for the investigation of the effect of each factor and their interactions on the response variable.</p>
 <p>The term is generally associated with experiments in which the design introduces conditions that directly affect the variation, but may also refer to the design of quasi-experiments, in which natural conditions that influence the variation are selected for observation.</p>
 <p>In its simplest form, an experiment aims at predicting the outcome by introducing a change of the preconditions, which is represented by one or more independent variables, also referred to as "input variables" or "predictor variables." The change in one or more independent variables is generally hypothesized to result in a change in one or more dependent variables, also referred to as "output variables" or "response variables.</p>
 </div>
@@ -7628,7 +7618,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Simple-Comparative-Experiments"><a id="toc3_"></a><a href="#toc0_">Simple Comparative Experiments</a><a class="anchor-link" href="#Simple-Comparative-Experiments">¶</a></h1>
+<h1 id="Full-Factorial-Design"><a id="toc3_"></a><a href="#toc0_">Full Factorial Design</a><a class="anchor-link" href="#Full-Factorial-Design">¶</a></h1>
 </div>
 </div>
 </div>
@@ -7639,17 +7629,216 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Statistical-Concepts"><a id="toc3_1_1_"></a><a href="#toc0_">Statistical Concepts</a><a class="anchor-link" href="#Statistical-Concepts">¶</a></h3><p><b>$Objectives$</b></p>
+<h3 id="Design-of-Experiments-(DoE)"><a id="toc3_1_1_"></a><a href="#toc0_">Design of Experiments (DoE)</a><a class="anchor-link" href="#Design-of-Experiments-(DoE)">¶</a></h3><p>Design of Experiments is a systematic method to determine the relationship between factors affecting a process and the output of that process. In a full factorial design, experiments are conducted at all possible combinations of factor levels. This approach allows for the investigation of the effect of each factor and their interactions on the response variable.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Example-of-a-Full-Factorial-Design-with-ML-Integration-%E2%80%93-Python-Code-"><a id="toc3_1_2_"></a><a href="#toc0_">Example of a Full Factorial Design with ML Integration – Python Code </a><a class="anchor-link" href="#Example-of-a-Full-Factorial-Design-with-ML-Integration-%E2%80%93-Python-Code-">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Combining DoE with Machine Learning</strong></p>
+<p>By using a full factorial design, we can systematically explore the combinations of feature levels and analyze their effects on the response variable. When combined with machine learning algorithms, this approach can help in:</p>
+<ul>
+<li>Identifying significant features.</li>
+<li>Understanding feature interactions.</li>
+<li>Enhancing model interpretability.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Example Overview</strong></p>
+<p>We'll create a synthetic dataset with several features (factors), each at different levels. We'll then perform a full factorial design to generate all possible combinations of these feature levels. After that, we'll use a machine learning algorithm (e.g., Random Forest) to model the data and determine feature importance.</p>
+<p>Steps:</p>
 <ol>
-<li>Basic statistical concepts such as 1) random sampling, 2) probability distributions, 3) sample distributions, and test of hypotheses</li>
-<li>Two-sample t-test, and use it to compare difference in two means</li>
-<li>Confidence intervals to express the difference in means</li>
-<li>Check assumption for the t-test</li>
+<li>Define Factors and Levels: Choose features and specify levels for each.</li>
+<li>Generate Full Factorial Design: Create a dataset with all possible combinations.</li>
+<li>Simulate Response Variable: Define a function to simulate the output based on features.</li>
+<li>Split Data: Separate into training and testing sets.</li>
+<li>Train Machine Learning Model: Use a suitable algorithm.</li>
+<li>Feature Selection and Importance: Analyze feature importances from the model.</li>
 </ol>
-<p><strong>Remember, we consider experiments to compare two or more conditions (sometimes called treatments).</strong>
-<strong>These are often called simple comparative experiments. We used the concept of Hypothesis Testing for a simple t-test on the means.</strong></p>
-<p><strong>One way to report the results of a hypothesis test is to state that the null hypothesis was or was not rejected at a specified (𝞪-value or level of significance). This is often called fixed significance level testing.</strong></p>
-<p><strong>The Use of P-Values in Hypothesis Testing is used to avoid many issues associated with testing on statistics.</strong></p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Step 1: Define Factors and Levels</span>
+<span class="c1"># For simplicity, we'll consider three factors/features: A, B, and C</span>
+<span class="c1"># Each factor has two levels: Low (-1) and High (1)</span>
+
+<span class="n">factors</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'A'</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="s1">'B'</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="s1">'C'</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="c1"># Step 2: Generate Full Factorial Design</span>
+<span class="c1"># Create all possible combinations of factor levels</span>
+
+<span class="n">factor_levels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">factors</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="n">full_factorial_design</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="n">factor_levels</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="n">factors</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Full Factorial Design:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">full_factorial_design</span><span class="p">)</span>
+
+<span class="c1"># Step 3: Simulate Response Variable</span>
+<span class="c1"># Define a function that simulates the response variable based on the factors</span>
+<span class="c1"># Include main effects and interaction effects</span>
+
+<span class="k">def</span> <span class="nf">simulate_response</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">row</span><span class="p">[</span><span class="s1">'A'</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">row</span><span class="p">[</span><span class="s1">'B'</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">row</span><span class="p">[</span><span class="s1">'C'</span><span class="p">])</span> \
+        <span class="o">+</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">row</span><span class="p">[</span><span class="s1">'A'</span><span class="p">]</span> <span class="o">*</span> <span class="n">row</span><span class="p">[</span><span class="s1">'B'</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">row</span><span class="p">[</span><span class="s1">'A'</span><span class="p">]</span> <span class="o">*</span> <span class="n">row</span><span class="p">[</span><span class="s1">'C'</span><span class="p">])</span> \
+        <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Adding some noise</span>
+    <span class="k">return</span> <span class="n">y</span>
+
+<span class="k">def</span> <span class="nf">calculate_mse</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">predicted</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Calculate the Mean Squared Error (MSE)</span>
+<span class="sd">    </span>
+<span class="sd">    :param actual: list of actual values</span>
+<span class="sd">    :param predicted: list of predicted values</span>
+<span class="sd">    :return: MSE</span>
+<span class="sd">    """</span>
+    <span class="c1"># Ensure actual and predicted lists have the same length</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">predicted</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Input lists must have the same length"</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate MSE</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span>
+    <span class="n">sum_squared_errors</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([(</span><span class="n">a</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">predicted</span><span class="p">)])</span>
+    <span class="n">mse</span> <span class="o">=</span> <span class="n">sum_squared_errors</span> <span class="o">/</span> <span class="n">n</span>
+    <span class="k">return</span> <span class="n">mse</span>
+
+<span class="n">full_factorial_design</span><span class="p">[</span><span class="s1">'Y'</span><span class="p">]</span> <span class="o">=</span> <span class="n">full_factorial_design</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">simulate_response</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Data with Response Variable:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">full_factorial_design</span><span class="p">)</span>
+
+<span class="c1"># Step 4: Split Data into Training and Testing Sets</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">full_factorial_design</span><span class="p">[[</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">full_factorial_design</span><span class="p">[</span><span class="s1">'Y'</span><span class="p">]</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Step 5: Train Machine Learning Model</span>
+<span class="c1"># Using Random Forest Regressor</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Evaluate the model (Optional)</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">mse</span> <span class="o">=</span> <span class="n">calculate_mse</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Model Performance on Test Set:</span><span class="se">\n</span><span class="s2">MSE: </span><span class="si">{</span><span class="n">mse</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, R2 Score: </span><span class="si">{</span><span class="n">r2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># Step 6: Feature Selection and Importance</span>
+
+<span class="n">feature_importances</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">'Feature'</span><span class="p">:</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+    <span class="s1">'Importance'</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">feature_importances_</span>
+<span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'Importance'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Feature Importances:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)</span>
+
+<span class="c1"># Visualize Feature Importances</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'Importance'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'Feature'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">feature_importances</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Feature Importances from Random Forest'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Importance Score'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Feature'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Full Factorial Design:
+   A  B  C
+0 -1 -1 -1
+1 -1 -1  1
+2 -1  1 -1
+3 -1  1  1
+4  1 -1 -1
+5  1 -1  1
+6  1  1 -1
+7  1  1  1
+
+Data with Response Variable:
+   A  B  C          Y
+0 -1 -1 -1  -7.704988
+1 -1 -1  1   0.225793
+2 -1  1 -1 -10.003817
+3 -1  1  1  -1.115324
+4  1 -1 -1  -1.018255
+5  1 -1  1  -1.612206
+6  1  1 -1  11.415996
+7  1  1  1  13.814932
+
+Model Performance on Test Set:
+MSE: 32.00, R2 Score: -36.89
+
+Feature Importances:
+  Feature  Importance
+0       A    0.603013
+1       B    0.212678
+2       C    0.184309
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
+<img alt="No description has been provided for this image" class="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqcAAAIhCAYAAABzDBPBAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9hAAAPYQGoP6dpAAA82klEQVR4nO3deZyNdf/H8feZ7cw+zNi3MXYKWcoWQxJZkrjvUDGiogWVCikG5cbtbkOLbZCk4r5DN5U14k5ue4SyZ8nOjG2W7+8Pvzl3x8zIjJk5XzOv5+NxHo853/O9rutzXd9z5rzn2sZhjDECAAAALODl6QIAAACAVIRTAAAAWINwCgAAAGsQTgEAAGANwikAAACsQTgFAACANQinAAAAsAbhFAAAANYgnAIAAMAahFPkG3FxcXI4HOk+BgwYkCPL3L59u4YNG6Z9+/blyPxvxr59++RwOPT3v//d06Vk2Zo1azRs2DCdOXPG06XkqiFDhqhMmTLy8fFRgQIFPF3OdcXExLh91vz8/FS+fHkNGDBA586d81hdTZs2VdOmTT22/GsNGzYsw99P48eP93R5aVy4cEHDhg3TihUrPF0K8iAfTxcA5LZp06apSpUqbm0lSpTIkWVt375dsbGxatq0qcqWLZsjy8jP1qxZo9jYWMXExFgf0rLLl19+qTfeeEOvvvqq7r//fjmdTk+X9KcCAgK0bNkySdKZM2f0xRdfaNy4cdqyZYu++eYbD1dnl8WLFyssLMytLSoqykPVZOzChQuKjY2VJKtCPvIGwinyndtvv11169b1dBk3JTExUQ6HQz4++fMjfPHiRfn7+3u6DI/Ytm2bJKlv374qUqTIdftevHhRAQEBuVHWdXl5eal+/fqu561atdKePXv07bffau/evVaGL0+pU6eOChUqlO3zvXDhggIDA7N9vkBO4LA+cI05c+aoQYMGCgoKUnBwsFq2bKmNGze69Vm/fr06d+6ssmXLKiAgQGXLllWXLl20f/9+V5+4uDj95S9/kSQ1a9bMdYguLi5OklS2bFnFxMSkWf61hxtXrFghh8OhmTNn6sUXX1TJkiXldDr1yy+/SJKWLFmi5s2bKzQ0VIGBgWrUqJGWLl2apXVPPfVh2bJleuKJJxQREaHQ0FB169ZNCQkJOnr0qP7617+qQIECKl68uAYMGKDExETX9KmnCowZM0ZvvPGGypQpI39/f9WtWzfdmlavXq3mzZsrJCREgYGBatiwob766qt0a/rmm2/0+OOPq3DhwgoMDNSgQYP00ksvSbq6Zyl1+6YeZpwzZ47uu+8+FS9eXAEBAapataoGDhyohIQEt/nHxMQoODhYv/zyi1q3bq3g4GCVLl1aL774oi5fvuzW9/Llyxo+fLiqVq0qf39/RUREqFmzZlqzZo2rjzFGEydO1B133KGAgAAVLFhQnTp10p49e9zmtXHjRrVt21ZFihSR0+lUiRIl1KZNGx06dCjD8SlbtqyGDBkiSSpatKgcDoeGDRvmeq1t27aaN2+eatWqJX9/f9eerW3btql9+/YqWLCg/P39dccdd2j69Olu8059n33yySd65ZVXVLx4cQUHB6tdu3Y6duyYzp8/ryeffFKFChVSoUKF1KNHD8XHx2dY659J/QPx2LFjrrZffvlFPXr0UMWKFRUYGKiSJUuqXbt22rp1a7q1zp49W6+++qpKlCih0NBQ3Xvvvdq5c6dbX2OMxowZo8jISPn7+6t27dpatGhRujUdOHBAjz76qGtMqlatqnHjxiklJcXVJ/U9PnbsWI0ePdr1O6Bp06batWuXEhMTNXDgQJUoUUJhYWHq0KGDfv/99yxvp2tNnTpVNWvWlL+/v8LDw9WhQwft2LHDrU/qe3rr1q267777FBISoubNm0uSrly5opEjR6pKlSpyOp0qXLiwevTooePHj7vNY9myZWratKkiIiIUEBCgMmXKqGPHjrpw4YL27dunwoULS5JiY2Ndn730fp8BWZE/d7sgX0tOTlZSUpJbW+oeyDfffFNDhgxRjx49NGTIEF25ckVjx45V48aNtW7dOlWrVk3S1S+oypUrq3PnzgoPD9eRI0f0/vvv684779T27dtVqFAhtWnTRm+++aYGDx6sCRMmqHbt2pKk8uXLZ6nuQYMGqUGDBvrggw/k5eWlIkWK6OOPP1a3bt3Uvn17TZ8+Xb6+vvrwww/VsmVLff31164vpMzq1auXHnroIX366afauHGjBg8erKSkJO3cuVMPPfSQnnzySS1ZskSjR49WiRIl9MILL7hNP378eEVGRurtt99WSkqKxowZo/vvv18rV65UgwYNJEkrV65UixYtVKNGDU2ZMkVOp1MTJ05Uu3btNHv2bD388MNu83z88cfVpk0bzZw5UwkJCapbt64uXLig9957T/PmzVPx4sUlyTVGu3fvVuvWrdW/f38FBQXp559/1ujRo7Vu3TrXIeZUiYmJeuCBB9SzZ0+9+OKL+u677zRixAiFhYXp9ddflyQlJSXp/vvv16pVq9S/f3/dc889SkpK0n/+8x8dOHBADRs2lCQ99dRTiouLU9++fTV69GidOnVKw4cPV8OGDbV582YVLVpUCQkJatGihaKiojRhwgQVLVpUR48e1fLly3X+/PkMx+Wf//ynJkyYoClTprgO/5YqVcr1+oYNG7Rjxw4NGTJEUVFRCgoK0s6dO9WwYUMVKVJE7777riIiIvTxxx8rJiZGx44d08svv+y2jMGDB6tZs2aKi4vTvn37NGDAAHXp0kU+Pj6qWbOmZs+e7XpPhISE6N13373h99Uf7d27Vz4+PipXrpyr7fDhw4qIiNDf/vY3FS5cWKdOndL06dNVr149bdy4UZUrV05Ta6NGjTR58mSdO3dOr7zyitq1a6cdO3bI29tb0tXwFBsbq549e6pTp046ePCgnnjiCSUnJ7vN7/jx42rYsKGuXLmiESNGqGzZslq4cKEGDBigX3/9VRMnTnRb9oQJE1SjRg1NmDBBZ86c0Ysvvqh27dqpXr168vX11dSpU7V//34NGDBAvXr10vz5829ou1z7+8nhcLjWZdSoURo8eLC6dOmiUaNG6eTJkxo2bJgaNGigH3/8URUrVnRNd+XKFT3wwAN66qmnNHDgQCUlJSklJUXt27fXqlWr9PLLL6thw4bav3+/hg4dqqZNm2r9+vUKCAjQvn371KZNGzVu3FhTp05VgQIF9Ntvv2nx4sW6cuWKihcvrsWLF6tVq1bq2bOnevXqJUmuwArcNAPkE9OmTTOS0n0kJiaaAwcOGB8fH/Pcc8+5TXf+/HlTrFgx89e//jXDeSclJZn4+HgTFBRk3nnnHVf7559/biSZ5cuXp5kmMjLSdO/ePU17dHS0iY6Odj1fvny5kWSaNGni1i8hIcGEh4ebdu3aubUnJyebmjVrmrvuuus6W8OYvXv3Gklm7NixrrbUbXTtNnjwwQeNJPOPf/zDrf2OO+4wtWvXTjPPEiVKmIsXL7raz507Z8LDw829997raqtfv74pUqSIOX/+vKstKSnJ3H777aZUqVImJSXFraZu3bqlWYexY8caSWbv3r3XXdeUlBSTmJhoVq5caSSZzZs3u17r3r27kWQ+++wzt2lat25tKleu7Ho+Y8YMI8lMmjQpw+WsXbvWSDLjxo1zaz948KAJCAgwL7/8sjHGmPXr1xtJ5l//+td1607P0KFDjSRz/Phxt/bIyEjj7e1tdu7c6dbeuXNn43Q6zYEDB9za77//fhMYGGjOnDljjPnf++za91P//v2NJNO3b1+39gcffNCEh4f/ab3du3c3QUFBJjEx0SQmJpoTJ06Y999/33h5eZnBgwdfd9qkpCRz5coVU7FiRfP888+72lNrbd26tVv/zz77zEgya9euNcYYc/r0aePv7286dOjg1u/77783ktw+ZwMHDjSSzA8//ODWt0+fPsbhcLi2a+p7vGbNmiY5OdnV7+233zaSzAMPPOA2fer2O3v27HXXNXVcr32ULFnStS4BAQFp1vnAgQPG6XSarl27utpS39NTp0516zt79mwjycydO9et/ccffzSSzMSJE40xxnzxxRdGktm0aVOG9R4/ftxIMkOHDr3uegFZwWF95DszZszQjz/+6Pbw8fHR119/raSkJHXr1k1JSUmuh7+/v6Kjo92uSo2Pj9crr7yiChUqyMfHRz4+PgoODlZCQkKaQ2zZpWPHjm7P16xZo1OnTql79+5u9aakpKhVq1b68ccf0xzCvlFt27Z1e161alVJUps2bdK0//FUhlQPPfSQ2zmhISEhateunb777jslJycrISFBP/zwgzp16qTg4GBXP29vbz322GM6dOhQmsOz167/n9mzZ4+6du2qYsWKydvbW76+voqOjpakNGPkcDjUrl07t7YaNWq4rduiRYvk7++vxx9/PMNlLly4UA6HQ48++qjbmBQrVkw1a9Z0vYcqVKigggUL6pVXXtEHH3yg7du3Z2rdMlKjRg1VqlTJrW3ZsmVq3ry5Spcu7dYeExOjCxcuaO3atW7tmRn7U6dO3dCh/YSEBPn6+srX11eFChVSnz599PDDD+uNN95w65eUlKQ333xT1apVk5+fn3x8fOTn56fdu3en+7l64IEH0qy/JNe4rV27VpcuXdIjjzzi1q9hw4aKjIx0a1u2bJmqVaumu+66y609JiZGxpg0e9tbt24tL6//fYVebztJV08ZuBFLlixx+93073//27UuFy9eTHPovHTp0rrnnnvSPW3m2s/MwoULVaBAAbVr187t/XnHHXeoWLFi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"/>
+</div>
 </div>
 </div>
 </div>
@@ -7660,7 +7849,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Example-Problem---Illustrates-the-Statistical-Concepts"><a id="toc3_1_2_"></a><a href="#toc0_">Example Problem - Illustrates the Statistical Concepts</a><a class="anchor-link" href="#Example-Problem---Illustrates-the-Statistical-Concepts">¶</a></h3>
+<h1 id="Factorial-Experiments:-Two-Factors"><a id="toc4_"></a><a href="#toc0_">Factorial Experiments: Two Factors</a><a class="anchor-link" href="#Factorial-Experiments:-Two-Factors">¶</a></h1>
 </div>
 </div>
 </div>
@@ -7671,7 +7860,12 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>An engineer is studying the formulation of a Portland cement mortar. He has added a polymer latex emulsion during mixing to determine if this impacts the curing time and tension bond strength of the mortar. The experimenter prepared 10 samples of the original formulation and 10 samples of the modified formulation. We will refer to the two different formulations as two treatments or as two levels of the factor formulations.</p>
+<h5 id="Suppose-we-have-two-factors/parameters-which-are--being-varied-in-the-experiment"><a id="toc4_1_1_1_1_"></a><a href="#toc0_">Suppose we have two factors/parameters which are  being varied in the experiment</a><a class="anchor-link" href="#Suppose-we-have-two-factors/parameters-which-are--being-varied-in-the-experiment">¶</a></h5><ul>
+<li>e.g., temperature and altitude (control variable)</li>
+<li>e.g., current (response variable)</li>
+</ul>
+<p>The traditional method is to hold one parameter constant, vary the other parameter, and measure the effect on the response variable.</p>
+<p>In general, hold all factors constant except for one, take the measurement, and then do this for several levels of this one factor.</p>
 </div>
 </div>
 </div>
@@ -7682,7 +7876,18 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<img alt="No description has been provided for this image" height="570" src="images/Simple Comparative Experiment_1.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="540"/>
+<img alt="No description has been provided for this image" height="238" src="images/Screenshot 2024-10-24 at 12.56.51 PM.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="340">
+</img></div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Alternative-Arrangement:-Factorial"><a id="toc4_1_1_2_"></a><a href="#toc0_">Alternative Arrangement: Factorial</a><a class="anchor-link" href="#Alternative-Arrangement:-Factorial">¶</a></h4>
 </div>
 </div>
 </div>
@@ -7693,164 +7898,49 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="Graphical-Description-of-Variability"><a id="toc3_1_2_1_1_"></a><a href="#toc0_">Graphical Description of Variability</a><a class="anchor-link" href="#Graphical-Description-of-Variability">¶</a></h5>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<img alt="No description has been provided for this image" height="357" src="images/Simple Comparative Experiment Dot Plot.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="640"/>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The histogram shows the central tendency, spread, and general shape of the distribution of the data.
-Recall that a histogram is constructed by dividing the horizontal axis into bins (usually of equal length) and drawing a rectangle over the jth bin with the area of the rectangle proportional to nj , the number of observations that fall in that bin.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="histogram"><a id="toc3_1_2_1_2_"></a><a href="#toc0_">histogram</a><a class="anchor-link" href="#histogram">¶</a></h5>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<img alt="No description has been provided for this image" height="411" src="images/histogram_2.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="540"/>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="-boxplot"><a id="toc3_1_2_1_3_"></a><a href="#toc0_"> boxplot</a><a class="anchor-link" href="#-boxplot">¶</a></h5>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<img alt="No description has been provided for this image" height="472" src="images/boxplot.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="540"/>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>For example, in Portland cement mortar formulation experimentation, we can say that $H_0$ : $𝞵_1$ = $𝞵_2$ was rejected at the 0.05 level of significance.</p>
-<p>This statement of conclusions is often inadequate because it gives the decision maker no idea about whether the computed value of the test statistic was just barely in the rejection region or whether it was very far into this region.</p>
-<p>Furthermore, stating the results this way imposes the predefined level of significance on other users of the information. This approach may be unsatisfactory because some decision makers might be uncomfortable with the risks implied by 𝞪 = 0.05 (e.g., 0.01).</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="General-Observations"><a id="toc3_1_2_2_"></a><a href="#toc0_">General Observations</a><a class="anchor-link" href="#General-Observations">¶</a></h4><p><span style="color:red"><b> Each of the observations in the Portland cement experiment described above would be called a $"run".$ Notice that the individual runs differ, so there is fluctuation, or noise, in the observed bond strengths.</b></span></p>
-<p>This noise is usually called "experimental error" or simply $error.$ It is a statistical error, meaning that it arises from variation that is uncontrolled and generally unavoidable.</p>
-<h4 id="Probability-Distributions"><a id="toc3_1_2_3_"></a><a href="#toc0_">Probability Distributions</a><a class="anchor-link" href="#Probability-Distributions">¶</a></h4><p>The probability structure of a random variable, say y, is described by its probability distribution. If y is discrete, we often call the probability distribution of y, say p(y), the probability mass function of y. If y is continuous, the probability distribution of y, say f(y), is often called the probability density function for y.</p>
-<p>The figs illustrate hypothetical continuous and discrete probability distributions. Notice that in the discrete probability distribution, it is the height of the function p(yj) that represents probability,</p>
-<p>Whereas in the continuous case it is the area under the curve f(y) associated with a given interval that represents probability.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="Probability-(continuous)"><a id="toc3_1_2_3_1_"></a><a href="#toc0_">Probability (continuous)</a><a class="anchor-link" href="#Probability-(continuous)">¶</a></h5>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<img alt="No description has been provided for this image" height="499" src="images/probability.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="540"/>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="Probability-(discrete)"><a id="toc3_1_2_3_2_"></a><a href="#toc0_">Probability (discrete)</a><a class="anchor-link" href="#Probability-(discrete)">¶</a></h5>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<img alt="No description has been provided for this image" height="412" src="images/discrete.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="540"/>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The properties of probability distributions may be summarized quantitatively as follows:</p>
-<p><strong>$y$ discrete:</strong></p>
+<p>We can combine each temperature level with each altitude, and then only four experiments are run.</p>
 <ul>
-<li><p>0 ≤ $p(y_i)$ ≤ 1  all values of $y_i$</p>
+<li><p>One estimate of temperature effect on current is 30 mA @ 0 m</p>
 </li>
-<li><p>$p(y = y_i)$ = $p(y_i)$ all values of $y_i$</p>
+<li><p>Another estimate is 20 mA @1000m</p>
 </li>
-<li><p>$\sum_{all\: y_i} p(y_i) = 1$</p>
+<li><p>Average estimate is 25 mA (Main Effect of B)</p>
+</li>
+<li><p>The two estimates of altitude effect are  -30  and -40 mA at 25 and 55C, respectively.</p>
+</li>
+<li><p>The average estimate is -35 mA (Main Effect of A)</p>
+</li>
+</ul>
+<p><strong>Hence, with just four observations valid comparisons have been made for both temp and altitude</strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<img alt="No description has been provided for this image" height="326" src="images/Screenshot 2024-10-24 at 1.03.02 PM.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="340"/>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="DOE-Advantages"><a id="toc4_1_2_"></a><a href="#toc0_">DOE Advantages</a><a class="anchor-link" href="#DOE-Advantages">¶</a></h3><ul>
+<li><p><strong>More efficiency than with one factor at a time experiments</strong></p>
+</li>
+<li><p><strong>All data are used in computing both effects</strong></p>
+</li>
+<li><p><strong>Some information is gleaned on possible interactions between two factors (e.g., the increase of 20mA @ 1K was roughly the same magnitude of 30mA @ 0K. If these increases had differed considerably, an interaction might be present)</strong></p>
+</li>
+<li><p><strong>These advantages will be more pronounced as the number of levels of the two factors is increased</strong></p>
 </li>
 </ul>
 </div>
@@ -7863,15 +7953,17 @@ Recall that a histogram is constructed by dividing the horizontal axis into bins
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>$y$ continuous:</strong></p>
 <ul>
-<li><p>0 ≤ $f(y)$</p>
+<li>A factorial experiment is one in which all levels of a given factor are combined with all levels of every other factor in the experiment.</li>
+</ul>
+<p>or</p>
+<ul>
+<li><p>in each complete trial or replication of the experiment all possible combinations of the levels of the factors are investigated.</p>
 </li>
-<li><p>P(a ≤ y ≤ b) = $\int_{a}^{b} f(y) \, dy$</p>
-</li>
-<li><p>$\int_{-\infty}^{\infty} f(y) \, dy$ = 1</p>
+<li><p>For example, if there exist “a” levels of factor A and “b” levels for factor B, then each replicate contains all “ab” treatment combinations.</p>
 </li>
 </ul>
+<p>By a Factorial Experiment we mean that in each complete trial or replicate of the experiment all possible combinations of the levels of the factors are investigation</p>
 </div>
 </div>
 </div>
@@ -7882,32 +7974,12 @@ Recall that a histogram is constructed by dividing the horizontal axis into bins
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The mean, 𝞵, of a probability distribution is a measure of its central tendency or location. Mathematically, we define the mean as</p>
-<ul>
-<li>$𝞵 = \int_{-\infty}^{\infty} y f(y)dy$ , $y$ continuous</li>
-<li>$𝞵 = \sum_{all\: y\:} yp(y)$ , $y$ discrete</li>
-</ul>
-<p>We also have the expected value or the long-run average value $\: 𝞵 = E(y)$</p>
-<ul>
-<li>$𝞵 = E(y)= \int_{-\infty}^{\infty} y f(y)dy$ , $y$ continuous</li>
-<li>$𝞵 = E(y)=\sum_{all\:} yp(y)$ , $y$ discrete</li>
-</ul>
-<p>The expected value is found by calculating the weighted value from the data, this represents what can be expected over many trials of the experiment.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The variability or dispersion of a probability distribution can be measured by the <strong>variance</strong></p>
-<ul>
-<li><p>$\sigma^2 = \int_{-\infty}^{\infty} (y-\mu)^2 f(y)dy$ , $y$ continuous</p>
+<h3 id="Interactions-between-Factors"><a id="toc4_1_3_"></a><a href="#toc0_">Interactions between Factors</a><a class="anchor-link" href="#Interactions-between-Factors">¶</a></h3><ul>
+<li><p>To indicate an interaction between factors A and B, graphs are useful in interpreting significant interactions and reporting result to an upper-level manager who may not fully understand statistics.</p>
 </li>
-<li><p>$\sigma^2 = \sum_{all\: y\:} (y-\mu)^2 p(y)$ , $y$ discrete</p>
+<li><p>The solid curves on the right would indicate no interaction between factors A and B</p>
+</li>
+<li><p>An interaction would occur if the two lines cross as factor A is increased from (1) to (2) – Red Dash line with solid black line</p>
 </li>
 </ul>
 </div>
@@ -7920,12 +7992,7 @@ Recall that a histogram is constructed by dividing the horizontal axis into bins
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Random Samples</strong></p>
-<p>The objective of statistical inference is to draw conclusions about a population using a sample from that population. Most of the methods that we will study assume that <strong>random samples</strong> are used. A <strong>random sample</strong> is a sample that has been selected from the population in such a way that every possible sample has an equal probability of being selected.</p>
-<p>The <strong>Sample Mean</strong>, <strong>sample variance</strong></p>
-<p>$\bar{y} = \frac{\sum_{i=1}^{n}\: y_i}{n}$</p>
-<p>$\:S^2 = \frac{\sum_{i=1}^{n}\: (y_i - \bar{y})^2}{n-1}$</p>
-<p>Sometimes $S = \sqrt{S^2}$, called the <strong>sample standard deviation</strong>, is used as a measure of dispersion. Experimenters often prefer to use the standard deviation to measure dispersion because its units are the same as those for the variable of interest y.</p>
+<img alt="No description has been provided for this image" height="390" src="images/Screenshot 2024-10-25 at 10.15.12 AM.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="340"/>
 </div>
 </div>
 </div>
@@ -7936,21 +8003,7 @@ Recall that a histogram is constructed by dividing the horizontal axis into bins
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="Degrees-of-Freedom"><a id="toc3_1_2_3_3_"></a><a href="#toc0_">Degrees of Freedom</a><a class="anchor-link" href="#Degrees-of-Freedom">¶</a></h5><p>The quantity <strong><em>n - 1</em></strong> in the Estimator Sample Variance is called the number of degrees of freedom of the sum of squares SS.</p>
-<p>The number of degrees of freedom of a sum of squares is equal to the number of independent elements in that sum of squares.</p>
-<p>Degrees of Freedom Formula
-The degrees of freedom formula is straightforward. Calculating the degrees of freedom is often the sample size minus the number of parameters (e.g., mean) you’re estimating:
-DF = N – P</p>
-<p>Where:
-N = sample size
-P = the number of parameters or relationships</p>
-<p><strong>Example</strong></p>
-<p>For example, the degrees of freedom formula for a 1-sample t test equals N – 1 because you’re estimating one parameter, the mean. To calculate degrees of freedom for a 2-sample t-test, use N – 2 because there are now two parameters to estimate.</p>
-<h5 id="Normal-Distributions"><a id="toc3_1_2_3_4_"></a><a href="#toc0_">Normal Distributions</a><a class="anchor-link" href="#Normal-Distributions">¶</a></h5><p>One of the most important sampling distributions is the normal distribution. If y is a normal random variable, the probability distribution of y is</p>
-<p>$f(y) = \frac{1}{\sigma\sqrt{2 \pi}}\:e^{-\frac{1}{2}[\frac{y-\mu}{\sigma}]^2}$</p>
-<p>where -∞ &lt; 𝛍 &lt; ∞ is the mean of the distribution and 𝛔2 &gt; 0 is the variance. The normal distribution.</p>
-<p>Because sample runs that differ as a result of experimental error often are well described by the normal distribution, the normal plays a central role in the analysis of data from designed experiments.</p>
-<p>Many important sampling distributions may also be defined in terms of normal random variables. We often use the notation y ~ N(𝜇, 𝜎2) to denote that y is distributed normally with mean 𝜇 and variance $𝜎^2$.</p>
+<img alt="No description has been provided for this image" height="263" src="images/Screenshot 2024-10-25 at 10.15.33 AM_1.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="440"/>
 </div>
 </div>
 </div>
@@ -7961,117 +8014,14 @@ P = the number of parameters or relationships</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<img alt="No description has been provided for this image" height="489" src="images/normal.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="440"/>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Often, we are able to determine the probability distribution of a particular statistic if we know the probability distribution of the population from which the sample was drawn. The probability distribution of a statistic is called a sampling distribution.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>An important special case of the normal distribution is the standard normal distribution; that is, 𝜇=0 and $𝜎^2$ = 1.</p>
-<p>We see that if y ~ N(𝜇, 𝜎2), the random variable</p>
-<p>$𝑧_𝑛=  \frac{(𝑥−𝑛𝜇)}{\sqrt{n\sigma^2}}$</p>
-<p>follows the standard normal distribution, denoted z ~ N(0, 1). The operation demonstrated in the equation above is often called standardizing the normal random variable y.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="Central-Limit-Theorem-(CLT)"><a id="toc3_1_2_3_5_"></a><a href="#toc0_">Central Limit Theorem (CLT)</a><a class="anchor-link" href="#Central-Limit-Theorem-(CLT)">¶</a></h5><p>The Central Limit Theorem (CLT) is one of the most important theorems in probability and statistics. It states that, under certain conditions, the sum (or average) of a large number of independent, identically distributed random variables will be approximately normally distributed, regardless of the original distribution of the variables.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<img alt="No description has been provided for this image" height="232" src="images/Mean Value Theorem.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="740"/>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="Intuitive-Understanding"><a id="toc3_1_2_3_6_"></a><a href="#toc0_">Intuitive Understanding</a><a class="anchor-link" href="#Intuitive-Understanding">¶</a></h5><p>The Central Limit Theorem explains why the normal distribution is so prevalent in statistics. It tells us that even if we are sampling from a population that is not normally distributed, the distribution of the sample means will tend to be normal as long as the sample size is large enough. This is why the normal distribution appears in many practical scenarios.</p>
-<p><strong>Example:</strong>
-Example: Customer Wait Times</p>
-<p>Imagine you own a restaurant, and you want to analyze how long customers typically wait to get their food after placing an order.</p>
-<p><strong>Step 1:</strong></p>
-<p>Population Distribution:
-You collect data and realize that the wait times are right-skewed (i.e., most customers wait a short time, but some experience much longer wait times). This type of distribution is not normal.
-Let's assume the average wait time (mean) for all customers is μ=10 minutes, and the standard deviation is σ=5 minutes.</p>
-<p><strong>Step 1: Take Random Samples of Wait Times:</strong></p>
-<p>Suppose you decide to take samples of 30 customers at a time and record their average wait time.
-Although the individual customer wait times are skewed, CLT tells us that the distribution of the sample means of 30 customers' wait times will be approximately normal as the sample size n=30 is sufficiently large.</p>
-<p><strong>Step 2: Repeat Sampling:</strong>
-You repeat this process many times: taking random samples of 30 customers, calculating the average wait time for each sample, and plotting these averages.
-Even though each individual sample may contain customers with very short or very long wait times (skewed data), the distribution of the average wait times across the samples will start to resemble a normal distribution.</p>
-<p><strong>Step 3: Distribution of Sample Means:</strong>
-According to the Central Limit Theorem, the distribution of these sample means will have:</p>
-<p>μ=10 minutes (same as the population mean),
-a standard deviation (standard error) of</p>
-<p>$ = \frac{\sigma}{\sqrt{n}}\:\frac{5}{\sqrt{30}} = 0.91 \:minutes$</p>
-<p>So, while the wait times for individual customers are skewed, the distribution of the average wait times for the 30-customer samples will be approximately normal, centered around 10 minutes, with a standard deviation of about 0.91 minutes.</p>
-<p><strong>Step 4: Applying the CLT:</strong></p>
-<p>If you take enough samples, the distribution of the sample means will be bell-shaped (normal distribution), which allows you to make predictions using normal distribution techniques.</p>
-<p>For example, you can now estimate with 95% confidence that the average wait time for any random sample of 30 customers will fall within,</p>
-<p>10±1.96×0.91 minutes, or approximately between 8.2 minutes and 11.8 minutes.</p>
-<p><strong>Key Takeaways:</strong></p>
-<p>The original distribution of customer wait times is right-skewed (non-normal).</p>
-<p>The sample means of wait times for groups of 30 customers follow an <strong>approximately normal distribution.</strong></p>
-<p>This allows you to use normal distribution methods (e.g., confidence intervals, hypothesis testing) on the sample means, even though the underlying wait time data is not normal.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="Example-Summary"><a id="toc3_1_2_3_7_"></a><a href="#toc0_">Example Summary</a><a class="anchor-link" href="#Example-Summary">¶</a></h5><p>This example demonstrates the Central Limit Theorem by showing that even if the individual data points (customer wait times) do not follow a normal distribution, the distribution of sample means from sufficiently large samples will approximate a normal distribution. This is incredibly useful for drawing conclusions about the population based on sample data, even when the population distribution is unknown or skewed.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="Sampling-Distributions"><a id="toc3_1_2_3_8_"></a><a href="#toc0_">Sampling Distributions</a><a class="anchor-link" href="#Sampling-Distributions">¶</a></h5><p>One sampling distribution is the <strong>t</strong> distribution with k degrees of freedom, denoted $t_k$</p>
 <ul>
-<li>The mean and variance of t are 𝜇 = 0 and 𝜎2 = k/(k - 2) for k &gt; 2, respectively</li>
+<li><strong>The effect of a factor is defined as the change in response by a change in the level of the factor.</strong></li>
+<li><strong>Its is called a “main effect” because it refers to the primary factors in the study; lets consider the data in the following table above</strong></li>
 </ul>
+<p>In a <strong><em>"factorial design"</em></strong>, the effects of varying the levels of the various factors affecting the process output is investigated. Each complete trial or replication of the experiment takes into account all the possible combinations of the varying levels of these factors.</p>
+<p>Effective factorial design ensures that the least number of experiment runs are conducted to generate the maximum amount of information about how input variables affect the output of a process.</p>
+<p>For instance, if the effects of two factors A and B on the output of a process are investigated, and A has 3 levels of intensity (e.g., weak, moderate, and strong presence) while B has 2 levels (weak and strong), then one would need to run 6 treatment combinations to complete the experiment, observing the process output for each of the combinations:</p>
+<p>1)weak(A)-weak(B),2)weak(A)-strong(B),3)moderate(A)-weak(B), 4)moderate(A)-strong(B), 5)strong(A)-weak(B),6) strong(A)-strong(B).</p>
 </div>
 </div>
 </div>
@@ -8082,7 +8032,8 @@ a standard deviation (standard error) of</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>$f(t) = \frac{\Gamma\left(\frac{k+1}{2}\right)}{\sqrt{k\pi} \, \Gamma\left(\frac{k}{2}\right)} \cdot \frac{1}{\left(\frac{t^2}{k} + 1\right)^{\frac{k+1}{2}}}, \quad -\infty &lt; t &lt; \infty$</p>
+<p>The amount of change produced in the process output for a change in the <strong><em>'level'</em></strong> of a given factor is referred to as the <strong><em>'main effect'</em></strong> of that factor. Table 1 shows an example of a simple factorial experiment involving two factors with two levels each.</p>
+<p>The two levels of each factor may be denoted as 'low' and 'high', which are usually symbolized by '-' and '+' in factorial designs, respectively.</p>
 </div>
 </div>
 </div>
@@ -8093,8 +8044,7 @@ a standard deviation (standard error) of</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>If $y_1$, $y_2$, . . . , yn is a random sample from the N(𝜇, $𝜎^2$ ) distribution</p>
-<p>$t = \frac{\bar{y} - \mu}{S / \sqrt{n}}$</p>
+<img alt="No description has been provided for this image" height="268" src="images/Screenshot 2024-10-25 at 10.25.49 AM.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="440"/>
 </div>
 </div>
 </div>
@@ -8105,102 +8055,15 @@ a standard deviation (standard error) of</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The second sampling distribution that we will consider is the F distribution. If $𝜒^2_u$ and $𝜒^2_v$  are two independent chi-square random variables with u and v degrees of freedom, respectively, then the ratio,</p>
-<p>$F_{u,v} = \frac{\chi^2_u \:/u}{\chi^2_v \:/v}$</p>
-<p>follows the F distribution with <strong>u</strong> numerator degrees of freedom and <strong>v</strong> denominator degrees of freedom.</p>
-<p>If <strong><em>x</em></strong> is an <strong><em>F</em></strong> random variable with <strong>u</strong> numerator and <strong>v</strong> denominator degrees of freedom, then the probability distribution of x is</p>
-<p>$h(x) = \frac{\Gamma\left(\frac{u + v}{2}\right) \left(\frac{u}{v}\right)^{u/2} x^{(u/2) - 1}}{\Gamma\left(\frac{u}{x}\right) \Gamma\left(\frac{v}{2}\right) \left(\left(\frac{u}{v}\right) x + 1\right)^{(u+v)/2}}, \quad 0 &lt; x &lt; \infty$</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<img alt="No description has been provided for this image" height="380" src="images/F Dist2.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="540"/>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>F Sampling Distributions</p>
-<p>Ex.
-As an example of a statistic that is distributed as F, suppose we have two independent normal populations with common variance $𝜎^2$. If $y_{11}, y_{12}, . . . , y_{1n1}$  is a random sample of n1 observations from the first population, and if $y_{21}, y_{22}, . . . , y_{2n2}$ is a random sample of $n_2$ observations from the second, then the ratios of the two-sample variances will follow the F distribution, where $S^2_1$ and $S^2_2$ are the two sample variances</p>
-<p>$\frac{S_1^2}{S_2^2} \sim F_{n_1 - 1, n_2 - 1}$</p>
-<p>Explanation:</p>
+<h3 id="$2%5Ek$-Factorial-Experiments"><a id="toc4_1_4_"></a><a href="#toc0_">$2^k$ Factorial Experiments</a><a class="anchor-link" href="#$2%5Ek$-Factorial-Experiments">¶</a></h3><p>A frequently used factorial experiment design in the semiconductor industry is known as the <strong>2k factorial design</strong>, which is basically an experiment involving k factors, each of which has two levels ('low' and 'high').</p>
+<p>In such a multi-factor two-level experiment, the number of treatment combinations needed to get complete results is equal to 2k. Thus, a 2k factorial experiment that deals with 3 factors would require 8 treatment combination, while one that deals with 4 factors would require 16 of them.</p>
+<p>One can easily see that the number of runs needed to complete a factorial experiment, even if only two levels are explored for each factor, can become very large.</p>
+<p>The first objective of a factorial experiment is to be able to determine, or at least estimate, the main factor effects, which indicate how each factor affects the process output.</p>
+<p>Factor effects need to be understood so that the factors can be adjusted to optimize the process output.</p>
 <ul>
-<li>$S^2_1$ and $S^2_2$ ​represent the sample variances.</li>
-<li>The ∼ symbol denotes "is distributed as."</li>
-<li>$F_{n-1}$ represents the F-distribution with degrees of freedom</li>
-</ul>
-<p>Inferences About the Differences</p>
-<p><strong>Means, Randomized Designs: Hypothesis Testing</strong></p>
-<p>$y_{ij} = \mu_i + \epsilon_{ij} 
-\begin{cases} 
-i = 1, 2 \\
-j = 1, 2, \dots, n_i 
-\end{cases}$</p>
-<p>where $y_{ij}$ is the $j^{th}$ observation from factor level i, $𝜇_i$ is the mean of the response at the ith factor level, and $𝜖_{ij}$ is a normal random variable associated with the $ij^{th}$ observation.</p>
-<p>It is customary to refer to $𝜖_{ij}$ as the random error component of the model.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="The-sampling-situation-for-the-two-sample-t-test"><a id="toc3_1_2_3_9_"></a><a href="#toc0_">The sampling situation for the two-sample t-test</a><a class="anchor-link" href="#The-sampling-situation-for-the-two-sample-t-test">¶</a></h5><p>A <strong>statistical hypothesis</strong> is a statement either about the parameters of a probability distribution or the parameters of a model.</p>
-<p>$H_0: \mu_1 = \mu_2 \\
-H_1: \mu_1 \neq \mu_2$</p>
-<p>The statement $H_0$ : 𝜇1 = 𝜇2 is called the null hypothesis and $H_1$ : 𝜇1 ≠ 𝜇2 is called the alternative hypothesis. The alternative hypothesis specified here is called a two-sided alternative hypothesis because it would be true if 𝞵1 &lt; 𝞵2 or if 𝞵1 &gt; 𝞵2.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<img alt="No description has been provided for this image" height="320" src="images/Screenshot 2024-10-08 at 2.44.49 PM.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="540"/>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Simple-Comparative-Experiments:-Concepts-&amp;-Ideas"><a id="toc3_1_3_"></a><a href="#toc0_">Simple Comparative Experiments: Concepts &amp; Ideas</a><a class="anchor-link" href="#Simple-Comparative-Experiments:-Concepts-&amp;-Ideas">¶</a></h3><h4 id="The-Two-Sample-t-Test"><a id="toc3_1_3_1_"></a><a href="#toc0_">The Two-Sample t-Test</a><a class="anchor-link" href="#The-Two-Sample-t-Test">¶</a></h4><p>Suppose that we could assume that the variances of tension bond strengths were identical for both mortar formulations.</p>
-<p>$t_0 = \frac{\bar{y}_1 - \bar{y}_2}{S_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}$</p>
-<ul>
-<li>where $y_1$ and $y_2$ are the sample means, $n_1$ and $n_2$ are the sample sizes, $S^2_p$ is an estimate of the common variance $𝞼^2_1 = 𝞼^2_2 = 𝞼^2$</li>
-</ul>
-<p>$S_p^2 = \frac{(n_1 - 1)S_1^2 + (n_2 - 1)S_2^2}{n_1 + n_2 - 2} \quad \text{(Eq. 1)}$</p>
-<ul>
-<li>$S_p$ is the pooled variance.</li>
-</ul>
-<p>$S_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}$</p>
-<ul>
-<li><p>often called the standard error of the difference in means</p>
+<li><p>The effect of each factor on the output can be due to it alone (a main effect of the factor), or a result of the interaction between the factor and one or more of the other factors (interactive effects).</p>
 </li>
-<li><p>$S^2_1 S^2_2$ are the two individual sample variances</p>
-</li>
-<li><p>The equation calculates the pooled variance by weighting the group variances according to their degrees of freedom, and it is labeled as "Eq. 1."</p>
+<li><p>When assessing factor effects (whether main or interactive effects), one needs to consider not only the magnitudes of the effects, but their directions as well.  The direction of an effect determines the direction in which the factors need to be adjusted in a process in order to optimize the process output.</p>
 </li>
 </ul>
 </div>
@@ -8213,7 +8076,15 @@ H_1: \mu_1 \neq \mu_2$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<img alt="No description has been provided for this image" height="394" src="images/Screenshot 2024-10-11 at 1.40.29 PM_9.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="540"/>
+<h3 id="Factorial-%E2%80%93-$2%5Ek$-"><a id="toc4_1_5_"></a><a href="#toc0_">Factorial – $2^k$ </a><a class="anchor-link" href="#Factorial-%E2%80%93-$2%5Ek$-">¶</a></h3><p>In factorial designs, the main effects are referred to using single uppercase letters, e.g., the main effects of factors A and B are referred to simply as 'A' and 'B', respectively.</p>
+<p>An interactive effect, on the other hand, is referred to by a group of letters denoting which factors are interacting to produce the effect, e.g., the interactive effect produced by factors A and B is referred to as 'AB'.</p>
+<p>Each treatment combination in the experiment is denoted by the lower-case letter(s) of the factor(s) that are at 'high' level (or '+' level). Thus, in a 2-factorial experiment, the treatment combinations are:</p>
+<ol>
+<li>'a' for the combination wherein factor A = 'high' and 		    factor B = 'low';</li>
+<li>'b' for factor A = 'low' and factor B = 'high';</li>
+<li>'ab' for the combination wherein both A and B = 'high’;</li>
+<li>'(1)', which denotes the treatment combination wherein both factors A and B are 'low'.</li>
+</ol>
 </div>
 </div>
 </div>
@@ -8224,7 +8095,10 @@ H_1: \mu_1 \neq \mu_2$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<img alt="No description has been provided for this image" height="665" src="images/Screenshot 2024-10-11 at 1.40.43 PM_1.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="440"/>
+<p>The magnitude and polarity (or direction) of the numerical values of main and interaction effects indicate how these effects influence the process output.</p>
+<p>A higher absolute value for an effect means that the factor responsible for it affects the output significantly.
+A negative value means that increasing the level(s) of the factor(s) responsible for that effect will decrease the output of the process.</p>
+<p>In a $2^2$ factorial experiment wherein n replicates were run for each combination treatment, the main and interactive effects of A and B on the output may be mathematically expressed as follows:</p>
 </div>
 </div>
 </div>
@@ -8235,7 +8109,20 @@ H_1: \mu_1 \neq \mu_2$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<img alt="No description has been provided for this image" height="400" src="images/Screenshot 2024-10-11 at 1.40.56 PM_3.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="700"/>
+<p>A = [ab + a - b - (1)] / $n2^{k-1}$;   (main effect of factor A)</p>
+<p>B = [ab + b - a - (1)] / $n2^{k-1}$;   (main effect of factor B)</p>
+<p>AB = [ab + (1) - a - b] / $n2^{k-1}$;   (interactive effect of factors A and B)</p>
+<p>where <strong>n</strong> is the number of replicates per treatment combination;</p>
+<ul>
+<li><p>a: is the total of the outputs of each of the n replicates of the 	    	    treatment combination a (A is 'high and B is 'low);</p>
+</li>
+<li><p>b: is the total output for the n replicates of the treatment 	   	    	    combination b (B is 'high' and A is 'low);</p>
+</li>
+<li><p>ab: is the total output for the n replicates of the treatment 	      	      combination ab (both A and B are 'high’);</p>
+</li>
+<li><p>(1): is the total output for the n replicates of the treatment 		      combination --- (1) (both A and B are 'low) → Identity Column</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -8246,10 +8133,143 @@ H_1: \mu_1 \neq \mu_2$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Recap:"><a id="toc3_1_3_2_"></a><a href="#toc0_">Recap:</a><a class="anchor-link" href="#Recap:">¶</a></h4><p>Because $t_0$ = -2.20  less than, $-t_{0.025,18}$ = -2.101, we would reject H0 and conclude that the mean tension bond strengths of the two formulations of Portland cement mortar are different. This is a potentially important engineering finding.</p>
-<p>The change in mortar formulation had the desired effect of reducing the cure time, but there is evidence that the change also affected the tension bond strength.</p>
-<p>One can conclude that the modified formulation reduces the bond strength</p>
-<p>If the reduction in mean bond strength is of practical importance (or has engineering significance in addition to statistical significance) then more development work and further experimentation will likely be required.</p>
+<p>The analysis of factor effects in the conduct of $2^k$ factorial experiments requires a lot of number crunching (even if only two levels per factor are considered in such experiments), especially if the number of factors being investigated is high. Fortunately, there's a systematic method for doing the required math in the analysis of factor effects.</p>
+<h3 id="Example"><a id="toc4_1_6_"></a><a href="#toc0_">Example</a><a class="anchor-link" href="#Example">¶</a></h3><p>The main and interactive effects of A and B in a $2^2$; k=2 factorial experiment involving n replicates are given as follows:</p>
+<ul>
+<li>A = [ab + a - b - (1)] / 2n</li>
+<li>B = [ab + b - a - (1)] / 2n</li>
+<li>AB = [ab + (1) - a - b] / 2n</li>
+</ul>
+<p>Note that each of these formulas involves a 'contrast', or a special linear combination of parameters whose coefficients equal zero.</p>
+<p>For instance, the contrast for A is ab+a-b-1 while the contrast for B is ab+b-a-1.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Main-and-Interactive-Effects"><a id="toc4_1_7_"></a><a href="#toc0_">Main and Interactive Effects</a><a class="anchor-link" href="#Main-and-Interactive-Effects">¶</a></h3><p>The main and interactive effects of A and B in a $2^2$ factorial experiment involving n replicates were given as follows:</p>
+<ul>
+<li><p>A = [ab + a - b - (1)] / 2n</p>
+</li>
+<li><p>B = [ab + b - a - (1)] / 2n</p>
+</li>
+<li><p>AB = [ab + (1) - a - b] / 2n</p>
+</li>
+</ul>
+<p>The coefficients of A's contrast are -1, +1, -1,and +1 if the contrast were written in what is known as Yates' Order, i.e., (1), a, b, ab.</p>
+<p>Furthermore, in Yates order, the coefficients of B's contrast are -1, -1, +1, +1 while those of AB's contrast are +1, -1, -1, +1.</p>
+<p>The significance of Yates' Order (also known as the 'Standard Order') is that it facilitates the determination of the algebraic signs of the coefficients needed for calculating the main and interaction effects of each factor in a factorial experiment.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Yates-Order"><a id="toc4_1_8_"></a><a href="#toc0_">Yates Order</a><a class="anchor-link" href="#Yates-Order">¶</a></h3><p>One can easily compute for the numerical values of factor effects if one knows the formulas to use and the output of each replicate for each combination treatment of the factorial experiment.</p>
+<p>Unfortunately, the formulas look daunting to people not accustomed to them. There is, however, an easy way to reconstruct these formulas using Yates Order.</p>
+<ul>
+<li><p>2 factors: (1), a, b, ab;</p>
+</li>
+<li><p>3 factors: (1), a, b, ab, c, ac, bc, abc</p>
+</li>
+<li><p>4 factors: (1), a, b, ab, c, ac, bc, abc, d, ad, bd, abd, cd, acd, bcd, abcd</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Matrix-Rules"><a id="toc4_1_9_"></a><a href="#toc0_">Matrix Rules</a><a class="anchor-link" href="#Matrix-Rules">¶</a></h3><ol>
+<li>The first rule for filling the matrix with '+' and '-' signs is this: treatment combinations wherein the factor in the column being filled is 'high' will get a '+' sign.</li>
+</ol>
+<p>On the other hand, treatment combinations wherein that factor is 'low' will get a '-' sign.</p>
+<ol start="2">
+<li><p>The second rule is: for interaction factors, the signs of their individual factors simply need to be multiplied for each treatment.</p>
+</li>
+<li><p>Lastly, the 'identity‘, I, column (wherein all factors are ‘low') gets a '+' sign for all combination treatments.</p>
+</li>
+</ol>
+<p>Once the matrix is finished, it can be used to look up the algebraic signs of the coefficients of each term in the contrast of each factor, allowing reconstruction of its 'effect' formula.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<img alt="No description has been provided for this image" height="295" src="images/Screenshot 2024-11-05 at 11.50.05 AM.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="440"/>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<img alt="No description has been provided for this image" height="464" src="images/Screenshot 2024-11-05 at 2.44.55 PM.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="540"/>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<img alt="No description has been provided for this image" height="367" src="images/Screenshot 2024-11-05 at 2.45.09 PM.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="440"/>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<img alt="No description has been provided for this image" height="414" src="images/Screenshot 2024-11-05 at 2.45.48 PM.png" style="display: block; margin-left: auto; margin-right: auto; border-radius: 8px;" width="540"/>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Example-Factorial-Experiments"><a id="toc4_1_10_"></a><a href="#toc0_">Example Factorial Experiments</a><a class="anchor-link" href="#Example-Factorial-Experiments">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 </div>
 </div>
 </div>
