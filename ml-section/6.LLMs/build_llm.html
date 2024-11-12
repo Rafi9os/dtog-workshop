@@ -7612,12 +7612,12 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -7630,21 +7630,8 @@ a.anchor-link {
 
 <span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"my_openai_key"</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'API Key: </span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="c1"># print(f'API Key: {api_key}')</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>API Key: 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
-</pre>
 </div>
 </div>
 </div>
@@ -7878,7 +7865,7 @@ Usage: When the model generates a response, you create an instance of AIMessage 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_ollama</span> <span class="kn">import</span> <span class="n">ChatOllama</span>  <span class="c1"># Updated import statement</span>
@@ -7907,7 +7894,7 @@ Usage: When the model generates a response, you create an instance of AIMessage 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">conversation_history</span> <span class="o">=</span> <span class="p">[]</span>
@@ -7946,7 +7933,7 @@ Usage: When the model generates a response, you create an instance of AIMessage 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [83]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Step 6: Run the Chatbot</span>
@@ -7972,17 +7959,7 @@ Usage: When the model generates a response, you create an instance of AIMessage 
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Bot: Hello! I'm here to help answer your question. RAG (Risks, Assumptions, and Gantt charts) models are a project management tool used to visualize and manage complex projects. They help project managers identify potential risks, assumptions, and dependencies between tasks in a project plan.
-
-The significance of RAG models lies in their ability to:
-
-1. Identify risks: RAG models allow project managers to identify potential risks that could impact the project timeline or budget. By categorizing these risks as green (low risk), amber (medium risk), or red (high risk), project managers can prioritize their efforts on mitigating high-risk factors.
-2. Assess assumptions: RAG models help project managers identify assumptions made during the project planning phase. By analyzing these assumptions, project managers can ensure that they are grounded in reality and are not likely to lead to unexpected problems down the line.
-3. Visualize dependencies: Gantt charts in RAG models illustrate the interdependencies between tasks and help project managers identify potential bottlenecks or critical path activities. This visual representation enables project managers to plan their resources more effectively and adjust their project schedule as needed.
-4. Facilitate communication: RAG models provide a common language and framework for project stakeholders to communicate about project status, risks, and assumptions. By using standardized colors and symbols, project managers can ensure that everyone is on the same page regarding project progress and potential issues.
-5. Monitor and adjust: As the project progresses, RAG models allow project managers to monitor the project's progress, identify potential issues early on, and adjust their project plan accordingly. This helps project managers stay adaptable and responsive to changing project requirements or unforeseen events.
-
-In summary, RAG models are a valuable tool for project managers as they help identify potential risks, assess assumptions, visualize dependencies, facilitate communication, and monitor and adjust the project plan throughout its lifecycle.
+<pre>Bot: The capital of Tunisia is Tunis.
 </pre>
 </div>
 </div>
@@ -7993,7 +7970,7 @@ In summary, RAG models are a valuable tool for project managers as they help ide
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">chat_with_bot_user</span><span class="p">(</span><span class="n">user_input</span><span class="p">):</span>
@@ -8005,7 +7982,7 @@ In summary, RAG models are a valuable tool for project managers as they help ide
     <span class="n">messages</span> <span class="o">=</span> <span class="p">[</span><span class="n">msg</span><span class="o">.</span><span class="n">content</span> <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">conversation_history</span><span class="p">]</span>  <span class="c1"># Only get the content</span>
     
     <span class="c1"># Generate a response from the model</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
     
     <span class="c1"># Append the model's response to the conversation history</span>
     <span class="n">conversation_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>
@@ -8022,7 +7999,7 @@ In summary, RAG models are a valuable tool for project managers as they help ide
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Step 6: Run the Chatbot</span>
@@ -8048,26 +8025,9 @@ In summary, RAG models are a valuable tool for project managers as they help ide
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>You: Hello
-Bot: Hello there! I'm here to help you with any questions or information you might need. It's nice to chat with you too! 😊
-
-By the way, did you know that the capital of Tunisia is Tunis? And the capital of France is Paris. Lastly, the first President of the United States was George Washington, who was inaugurated on April 30, 1789 and served two terms until March 4, 1797. Is there anything else you would like to know or discuss?
-
-Regarding your question about LLM, I can suggest some good books to read. One book that I found helpful is "LLM: A Guide to Master of Laws Degrees" by Sarah M. Chichester. This book provides an comprehensive overview of the LLM degree program, including its history, curriculum, and career opportunities. It also offers practical advice on how to choose the right LLM program and navigate the application process.
-
-Additionally, you may find "LLM Handbook: A Comprehensive Guide to Master of Laws Degrees" by J.H. Olsen helpful. This book provides detailed information on LLM programs around the world, including their structure, requirements, and admissions criteria. It also offers tips on how to make the most of your LLM experience and launch a successful legal career.
-
-Both of these books are highly rated and can provide you with valuable insights and advice on pursuing an LLM degree. Good luck with your studies! 📚
-You: WHat are the building block of Large Language Models?
-Bot: Hello! Large Language Models (LLMs) are built using a combination of natural language processing (NLP) techniques and machine learning algorithms. The building blocks of LLMs include:
-
-1. Word embeddings: These are dense vector representations of words that capture their semantic meaning. Word embeddings are typically learned using unsupervised methods, such as word2vec or GloVe.
-2. Sentence embeddings: These are vector representations of sentences that capture their meaning and context. Sentence embeddings can be learned using various techniques, including recurrent neural networks (RNNs) and transformer architectures.
-3. Language models: These are probabilistic models that generate text by sampling from a probability distribution over the possible words in a language. Language models are trained on large datasets of text to predict the next word in a sequence given the previous words.
-4. Attention mechanisms: These are techniques used to focus the generation of text on specific parts of the input sequence, such as the next word or the context surrounding a particular word. Attention mechanisms help LLMs generate more coherent and contextually appropriate text.
-5. Training data: Large datasets of text are used to train LLMs, which learn to predict the next word in a sequence given the previous words. The quality and diversity of the training data have a significant impact on the performance of LLMs.
-
-These building blocks are combined and fine-tuned to create different types of LLMs, such as language translation models, text generation models, and question answering systems. By combining these building blocks in various ways, researchers and developers can create LLMs with different capabilities and performance levels.
+<pre>You: what is the capital of Texas?
+Bot: 
+The capital of Tunisia is Tunis, and the capital of Texas is Austin.
 </pre>
 </div>
 </div>
